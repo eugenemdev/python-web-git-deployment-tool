@@ -9,7 +9,7 @@ For this tool we used:
 - ***bash code*** with recomendations how to make own systemctl service
 
 ## [View the demo]() ... soon!
-[screen of web tool](./screen.png)
+![screen of web tool](./screen.png)
 
 ## How run this app
 - Build Frontend:  `npm run build`
