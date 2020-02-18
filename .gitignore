@@ -1,4 +1,4 @@
 node_modules
-___pycache___
+__pycache__
 .vscode
 package-lock.json
