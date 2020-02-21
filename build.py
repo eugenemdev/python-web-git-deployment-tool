@@ -7,6 +7,7 @@ from datetime import datetime
 logging.basicConfig(level=logging.INFO)
 
 def build(STATE, gitDirectory):
+    
     newbuild = os.system('npm run build')    
     now = datetime.now()
     date_string = now.strftime("%d/%m/%Y %H:%M:%S")

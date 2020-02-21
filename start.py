@@ -14,32 +14,10 @@ import build
 import gitcmds
 import deploy
 import handler
+import config
 
 # Initializing STATE
-STATE = {
-    "system" : {
-        "name" : "Linux CentOS",
-        "lastreboot" : ""
-    },
-    "repo" : {
-        "name" : "", 
-        "date" : "", 
-        "status" : "",
-        "previous_commit" : "",
-        "last_commit" : "",
-        "description" : "",
-    },
-    "build" : {
-       "date" :  "", 
-       "status" : "", 
-       "description" : "", 
-    },
-    "deploy" : {
-        "date" : "", 
-        "status" : "", 
-        "description" : "" 
-    }
-}
+STATE = config.STATE
 
 gitDirectory = gitcmds.getGitDirectory()
 repo = gitcmds.getRepo(gitDirectory)
