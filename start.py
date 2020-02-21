@@ -57,7 +57,7 @@ def job():
 def ticker():    
     start = 0 #option starts every 10 minutes    
     timer = threading.Event()
-
+    
     while True:
         time = get_time_as_num()
         logging.info("Timer woke up in %s min." %time)
@@ -65,7 +65,6 @@ def ticker():
             job()
             
         timer.wait(59.0) #sec
-
 
 def runHTTPServer(server_class=HTTPServer, handler_class=handler.MyHandler, port=3000):                
     logging.basicConfig(level=logging.INFO)
@@ -76,15 +75,21 @@ def runHTTPServer(server_class=HTTPServer, handler_class=handler.MyHandler, port
         httpd.serve_forever()
     except KeyboardInterrupt:
         pass
-    httpd.server_close()
-    logging.info('Stopping httpd...\n')
+    httpd.server_close()        
 
 
 # when server start
-if __name__ == "__main__":      
-    proccess1 = multiprocessing.Process(target=ticker)
-    proccess2 = multiprocessing.Process(target=runHTTPServer)
-    proccess1.start()
-    proccess2.start()
-    proccess1.join()
-    proccess2.join()
+if __name__ == "__main__":
+    try:      
+        proccess1 = multiprocessing.Process(target=ticker)
+        proccess2 = multiprocessing.Process(target=runHTTPServer)
+        proccess1.start()
+        proccess2.start()
+        proccess1.join()
+        proccess2.join()
+    except KeyboardInterrupt:
+        proccess1.terminate()
+        logging.info('Stopping timer...\n')
+        proccess2.terminate()
+        logging.info('Stopping httpd...\n')
+        
