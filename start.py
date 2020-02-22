@@ -10,18 +10,25 @@ from datetime import datetime
 import threading
 import multiprocessing
 
+import store
+import mygit
 import build
-import gitcmds
 import deploy
 import handler
 import config
 
-# Initializing STATE
-STATE = config.STATE
 
-gitDirectory = gitcmds.getGitDirectory()
-repo = gitcmds.getRepo(gitDirectory)
-STATE["repo"]["name"] = str(repo)
+# Initializing State instance
+storeInstance = store.Store()
+gitInstance = mygit.MyGit()
+buildInstance = build.Build()
+deployInstance = deploy.Deploy()
+
+
+#test
+gitInstance.getPull()
+buildInstance.build()
+deployInstance.deploy()
 
 def get_time_as_num():
     time = datetime.now()             
@@ -37,21 +44,16 @@ def get_time_as_num():
 def job():    
     
     time = get_time_as_num()    
-    result  = gitcmds.getPull(STATE, gitDirectory, repo)    
+    result  = gitInstance.getPull()    
 
     if result == True:
-        build(STATE, gitDirectory)
-        deploy.deploy(STATE, gitDirectory)
+        buildInstance.build()
+        deployInstance.deploy()
     else: 
         logging.info('There aren\'t new changes to build new release')
-        result = deploy.check()
-        if result == 256:
-            deploy.deploy(STATE, gitDirectory)
-
-    # for testing
-    #build.build(STATE, gitDirectory)
-    #deploy.deploy(STATE, gitDirectory)
-    
+        result = deployInstance.check()
+        if result == 0:
+            deployInstance.deploy()
     pass
 
 def ticker():    
@@ -87,6 +89,7 @@ if __name__ == "__main__":
         proccess2.start()
         proccess1.join()
         proccess2.join()
+
     except KeyboardInterrupt:
         proccess1.terminate()
         logging.info('Stopping timer...\n')

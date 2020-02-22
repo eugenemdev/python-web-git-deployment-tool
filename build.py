@@ -3,23 +3,23 @@ import os
 import logging
 import json
 from datetime import datetime
+import store
+import config
 
 logging.basicConfig(level=logging.INFO)
 
-def build(STATE, gitDirectory):
-    
-    newbuild = os.system('npm run build')    
-    now = datetime.now()
-    date_string = now.strftime("%d/%m/%Y %H:%M:%S")
-    
-    STATE["build"]["date"] = str(date_string)
-    STATE["build"]["status"] = "Passed"
-    STATE["build"]["description"] = "Source was built successful"
-    
-    logging.info('Source was built successful')
-    
-    data = STATE
+class Build:
+    def __init__(self):
+        self.State = store.Store()
 
-    with open("dist/state.json", "w") as write_file:
-        json.dump(data, write_file)
-        filename = gitDirectory + '/dist/state.json'
+    def build(self):
+        command = "npm run build --prefix " + "../" + config.watchDir
+        os.system(command)                
+        now = datetime.now()
+        date_string = now.strftime("%d/%m/%Y %H:%M:%S")
+
+        self.State.set("build", "date", str(date_string))
+        self.State.set("build", "status", "Passed")
+        self.State.set("build", "description", "Source was built successful")        
+    
+        logging.info('Source was built successful')

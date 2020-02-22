@@ -17,7 +17,9 @@ class View {
                 <h3> Python Web Deployment Monitoring Tool</h3>
                 <ul>
                     <li>Current System : ${state.system.name}</li>
-                    <li>Last Reboot : ${state.system.lastreboot}</li>
+                    <li>Last Reboot : ${state.system.lastReboot}</li>
+                    <li>Git Dir: ${state.system.gitDirectory}</li>
+                    <li>Tool Dir: ${state.system.toolDirectory}</li>
                 </ul>
                 <p>Repository : ${String.raw`${state.repo.name}`}</p>
                 <ul>
@@ -27,13 +29,13 @@ class View {
                     <li>Last commit :  ${state.repo.last_commit}</li>
                     <li>Info: ${state.repo.description}</li>
                 </ul>
-                <p>Build</p>
+                <p>Build :</p>
                 <ul>
                     <li>Last buid :  ${state.build.date}</li>
                     <li>Current status :  ${state.build.status}</li>
                     <li>Info: ${state.build.description}</li>
                 </ul>
-                <p>Deploy</p>
+                <p>Deploy:</p>
                 <ul>
                     <li>Last deploy : ${state.deploy.date}</li>
                     <li>Current status : ${state.deploy.status}</li>
