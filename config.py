@@ -3,7 +3,7 @@
 watchDir = "simple-test-server"
 
 #name of script to start with NodeJS server
-Start = "server.js"
+start = "server.js"
 
 Pairs = [
             (".css", "'Content-type', 'text/css'"), 

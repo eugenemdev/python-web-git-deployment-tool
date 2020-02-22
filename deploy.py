@@ -29,7 +29,7 @@ class Deploy:
 
     def check(self):
         #pid = os.system('pgrep node') #return pid   #pgrep -v -u root #all processes
-        pid = os.system("ps aux | grep node| grep %s | awk '{print $2}'" %config.Start)        
+        pid = os.system("ps aux | grep node| grep %s | awk '{print $2}'" %config.start)        
         return pid
 
     def deploy(self):
