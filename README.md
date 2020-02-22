@@ -1,4 +1,4 @@
-# Python monitoring tool to build and deploy git code (In progress)
+# Python monitoring tool to build and deploy git code (in progress)
 
 ## Introduction
 
@@ -57,7 +57,7 @@ so let's go:
  - see worked simple-test-server by http://localhost:8081
 
 
-***Later we will add the information  how to start this script as systemctl service in Linux and autoinstall bash script ***
+***Later we will add the information  how to start this script as systemctl service in Linux and autoinstall bash script***
 
 ## [View the demo]() ... soon!
 ![screen of web tool](./screen.png)
