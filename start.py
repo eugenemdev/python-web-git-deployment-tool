@@ -25,10 +25,10 @@ buildInstance = build.Build()
 deployInstance = deploy.Deploy()
 
 
-#test
-gitInstance.getPull()
-buildInstance.build()
-deployInstance.deploy()
+#for testing withiut waiting
+#gitInstance.getPull()
+#buildInstance.build()
+#deployInstance.deploy()
 
 def get_time_as_num():
     time = datetime.now()             
