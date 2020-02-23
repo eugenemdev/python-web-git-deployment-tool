@@ -12,3 +12,32 @@ Pairs = [
             (".ico", "'Content-type', 'image/x-icon'"),
             (".html" , "'Content-type', 'text/html'")
         ]
+
+State = {
+    "system" : {
+        "name" : "",
+        "lastReboot" : "",
+        "gitDirectory" : "",
+        "toolDirectory" : "",        
+        "jsonFilePath" : "",        
+        "test" : ""
+    },
+    "repo" : {
+        "name" : "", 
+        "date" : "", 
+        "status" : "",
+        "previous_commit" : "",
+        "last_commit" : "",
+        "description" : "",
+    },
+    "build" : {
+        "date" :  "", 
+        "status" : "", 
+        "description" : "", 
+    },
+    "deploy" : {
+        "date" : "", 
+        "status" : "", 
+        "description" : "" 
+    }
+}

@@ -1,30 +1,28 @@
-'use strict';
-import Model from './model.js';
-import View from './view.js';
+'use strict'
+import Model from './model.js'
+import View from './view.js'
 
 /**
  * controller Monitor
  * @param model
  * @param view
- * 
  * @return state
  */
 
 class Monitor {
-    constructor(){
-        this.model = new Model();
-        this.view = new View();                
-    }
-            
-    async render(){        
-        let state = await this.model.getState();                
-        let section =  await this.view.appendState(state);
-        return section                        
-    }
+  constructor () {
+    this.model = new Model()
+    this.view = new View()
+  }
 
-    after_render(){
-    }
+  async render () {
+    const state = await this.model.getState()
+    const section = await this.view.appendState(state)
+    return section
+  }
 
+  afterRender () {
+  }
 }
 
-export default Monitor;
+export default Monitor
