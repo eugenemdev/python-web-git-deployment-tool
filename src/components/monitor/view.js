@@ -1,18 +1,14 @@
-'use strict';
+'use strict'
 
 /**
- * View for component Monitor 
+ * View for component Monitor
  * @param monitoring state
  * @returns html view for home page
  */
 
 class View {
-    constructor(){           
-    }   
-
-    appendState(state){
-                
-        let view =  /*html*/`
+  appendState (state) {
+    const view = /* html */`
             <section class="section">
                 <h3> Python Web Deployment Monitoring Tool</h3>
                 <ul>
@@ -42,8 +38,8 @@ class View {
                     <li>Info: ${state.deploy.description}</li>
                 </ul>
             </section>`
-    return view;        
-    }
+    return view
+  }
 }
 
-export default View;
+export default View

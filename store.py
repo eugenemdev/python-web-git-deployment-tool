@@ -2,35 +2,9 @@ import json
 import config
 import logging
 import os
+import config
 
-State = {
-    "system" : {
-        "name" : "",
-        "lastReboot" : "",
-        "gitDirectory" : "",
-        "toolDirectory" : "",        
-        "jsonFilePath" : "",        
-        "test" : ""
-    },
-    "repo" : {
-        "name" : "", 
-        "date" : "", 
-        "status" : "",
-        "previous_commit" : "",
-        "last_commit" : "",
-        "description" : "",
-    },
-    "build" : {
-        "date" :  "", 
-        "status" : "", 
-        "description" : "", 
-    },
-    "deploy" : {
-        "date" : "", 
-        "status" : "", 
-        "description" : "" 
-    }
-}
+State = config.State
 
 class Store:      
     logging.basicConfig(level=logging.INFO)

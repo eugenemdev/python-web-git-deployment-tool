@@ -32,17 +32,10 @@ class MyHandler(BaseHTTPRequestHandler):
             filename = toolDirectory + '/dist/' + self.path        
         
         self.send_response(200)
-
         logging.info("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
         
-        pairs = [
-            (".css", "'Content-type', 'text/css'"), 
-            (".json", "'Content-type', 'application/javascript'"), 
-            (".js", "'Content-type', 'application/javascript'"),
-            (".ico", "'Content-type', 'image/x-icon'"),
-            (".html" , "'Content-type', 'text/html'")
-        ]
-
+        pairs = config.Pairs
+        
         for fileType, contentHeader in pairs:                        
             
             result = bool(re.match(fileType, filename))                                  

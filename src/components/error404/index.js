@@ -1,16 +1,11 @@
-class Error404{
-
-    /**
-     * Controller for component Error404
-     * @returns html to view error 404 then we have some error
-     */
-
-    constructor(){  
-    }
-
-    async render(){
-        
-        let view =  /*html*/`        
+'use strict'
+/**
+* Controller for component Error404
+* @returns html to view error 404 then we have some error
+*/
+class Error404 {
+  async render () {
+    const view = /* html */`        
             <section class="section">
             <div class="page-wrap d-flex flex-row">
             <div class="container">
@@ -25,10 +20,10 @@ class Error404{
             </div>
             </section>
         `
-        return view
-    }
+    return view
+  }
 
-    after_render(){         
-    }
+  afterRender () {
+  }
 }
-export default Error404;
+export default Error404

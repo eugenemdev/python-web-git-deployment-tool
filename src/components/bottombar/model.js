@@ -1,11 +1,10 @@
-
+'use strict'
 /**
  * Model for component BottomBar
  * @returns nothing
  */
 
-class Model{
-    constructor(){ }
+class Model {
 }
 
-export default Model;
+export default Model
